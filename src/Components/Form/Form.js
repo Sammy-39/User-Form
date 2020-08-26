@@ -13,25 +13,9 @@ class Form extends React.Component{
             Password: ""
         }
     }
-
-    onNameChange = (event) =>{
-        this.setState({Name: event.target.value});
-    };
-
-    onEmailChange = (event) =>{
-        this.setState({Email: event.target.value});
-    };
-
-    onPhoneChange = (event) =>{
-        this.setState({PhoneNumber: event.target.value});
-    };
-
-    onGenderChange = (event) =>{
-        this.setState({Gender: event.target.value});
-    };
-
-    onPasswordChange = (event) =>{
-        this.setState({Password: event.target.value});
+    
+    onFieldChange= (event) =>{
+        this.setState({[event.target.name]: event.target.value});
     };
 
     onBtnClick = (event) =>{
@@ -63,35 +47,41 @@ class Form extends React.Component{
                 <p className="title"> ------- User Form ------- </p>
 
                     <input type="text"
-                    value = {this.state.Name} 
+                    value = {this.state.Name}
+                    name = "Name" 
                     placeholder="Enter your Name" 
                     className="input-style"
-                    onChange={this.onNameChange} />
+                    onChange={this.onFieldChange} />
 
                     <input type="text"
-                    value = {this.state.Email}  
+                    value = {this.state.Email}
+                    name = "Email"   
                     placeholder="Enter your Email" 
                     className="input-style"
-                    onChange={this.onEmailChange} />
+                    onChange={this.onFieldChange} />
 
                     <input type="text"
-                    value = {this.state.PhoneNumber}  
+                    value = {this.state.PhoneNumber}
+                    name = "PhoneNumber"  
                     placeholder="Enter your PhoneNumber" 
                     className="input-style"
-                    onChange={this.onPhoneChange} />
+                    onChange={this.onFieldChange} />
 
-                    <select className="input-style" value = {this.state.Gender} 
-                    onChange={this.onGenderChange}>
+                    <select className="input-style" 
+                    value = {this.state.Gender} 
+                    name = "Gender"
+                    onChange={this.onFieldChange}>
                         <option value=""> Choose Gender </option>
                         <option value="Male"> Male </option>
                         <option value="Female"> Female </option>
                     </select>    
 
                     <input type="password"
-                    value = {this.state.Password}  
+                    value = {this.state.Password}
+                    name = "Password"  
                     placeholder="Enter your Password" 
                     className="input-style"
-                    onChange={this.onPasswordChange} />
+                    onChange={this.onFieldChange} />
 
                     <button className="submit-btn" 
                     onClick={this.onBtnClick}> Submit </button> 
